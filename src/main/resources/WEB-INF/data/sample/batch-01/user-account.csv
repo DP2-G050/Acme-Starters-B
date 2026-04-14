@@ -1,0 +1,19 @@
+key,enabled,identity,password,username
+user-account-consumer-01,true,"UserIdentity{name: 'Peter', surname: 'Consumer', email: 'peter@acme.com'}",consumer1,consumer1
+user-account-consumer-02,true,"UserIdentity{name: 'Mary', surname: '貸んい建濯よ芝弾テソ Λορεμ ιπσθμ', email: 'mary@acme.com'}",consumer2,consumer2
+user-account-consumer-03,true,"UserIdentity{name: 'Manolo', surname: '之乎路可良 ᏥᏲᏎᎭ', email: 'manolo@acme.com'}",consumer3,consumer3
+user-account-provider-01,true,"UserIdentity{name: 'Laurel', surname: 'Provider', email: 'laurel@acme.com'}",provider1,provider1
+user-account-provider-02,true,"UserIdentity{name: 'Martina', surname: 'коза თხა', email: 'martina@acme.com'}",provider2,provider2
+user-account-provider-03,true,"UserIdentity{name: 'Antonia', surname: 'אבטיח Æløzå', email: 'antonia@acme.com'}",provider3,provider3
+user-account-inventor-01,true,"UserIdentity{name: 'inv', surname: 'gregr', email: 'inventor1@acme.com'}",inventor1,inventor1
+user-account-inventor-02,true,"UserIdentity{name: 'inv4', surname: 'rfregr', email: 'inventor2@acme.com'}",inventor2,inventor2
+user-account-inventor-03,true,"UserIdentity{name: 'fege', surname: 'frfref', email: 'inventor3@acme.com'}",inventor3,inventor3
+user-account-fundraiser-01,true,"UserIdentity{name: 'Roony', surname: 'Fundraiser', email: 'roony@acme.com'}",fundraiser1,fundraiser1
+user-account-fundraiser-02,true,"UserIdentity{name: 'Meggy', surname: 'Fundraiser', email: 'meggy@acme.com'}",fundraiser2,fundraiser2
+user-account-fundraiser-03,true,"UserIdentity{name: 'Mateo', surname: 'Fundraiser', email: 'mateo@acme.com'}",fundraiser3,fundraiser3
+user-account-spokesperson-01,true,"UserIdentity{name: 'Sarah', surname: 'Johnson', email: 'sarah.j@acme.com'}",spokesperson1,spokesperson1
+user-account-spokesperson-02,true,"UserIdentity{name: 'Michael', surname: 'Chen', email: 'michael.chen@acme.com'}",spokesperson2,spokesperson2
+user-account-spokesperson-03,true,"UserIdentity{name: 'Emma', surname: 'Smith', email: 'emma.smith@acme.com'}",spokesperson3,spokesperson3
+user-account-auditor-01,true,"UserIdentity{name: 'Alvaro', surname: 'Martinez', email: 'audit1@acme.com'}",auditor1,auditor1
+user-account-auditor-02,true,"UserIdentity{name: 'Sofia', surname: 'Gonzalez', email: 'audit2@acme.com'}",auditor2,auditor2
+user-account-auditor-03,true,"UserIdentity{name: 'Hiroshi', surname: 'Tanaka', email: 'audit3@acme.com'}",auditor3,auditor3
