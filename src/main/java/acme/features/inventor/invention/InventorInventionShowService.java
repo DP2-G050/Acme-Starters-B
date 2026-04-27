@@ -34,9 +34,8 @@ public class InventorInventionShowService extends AbstractService<Inventor, Inve
 	public void authorise() {
 		boolean status;
 
-		status = this.invention != null && //TODO
-			(this.invention.getInventor().isPrincipal() || !this.invention.isDraftMode() && //
-				MomentHelper.isFuture(this.invention.getStartMoment()) && MomentHelper.isFuture(this.invention.getEndMoment()));
+		status = this.invention != null && (this.invention.getInventor().isPrincipal() || !this.invention.isDraftMode() && //
+			MomentHelper.isFuture(this.invention.getStartMoment()) && MomentHelper.isFuture(this.invention.getEndMoment()));
 
 		super.setAuthorised(status);
 	}

@@ -33,7 +33,7 @@ public class SpokespersonCampaignShowService extends AbstractService<Spokesperso
 	@Override
 	public void authorise() {
 		boolean status;
-
+		//TODO: No hay restriccion de futuro aqui
 		status = this.campaign != null && (this.campaign.getSpokesperson().isPrincipal() || !this.campaign.isDraftMode() && //
 			MomentHelper.isFuture(this.campaign.getStartMoment()) && MomentHelper.isFuture(this.campaign.getEndMoment()));
 
@@ -42,6 +42,7 @@ public class SpokespersonCampaignShowService extends AbstractService<Spokesperso
 
 	@Override
 	public void unbind() {
+		//TODO : effort se puede insertar directamente
 		super.unbindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "spokesperson", "draftMode");
 		super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
 		super.unbindGlobal("effort", this.campaign.getEffort());
