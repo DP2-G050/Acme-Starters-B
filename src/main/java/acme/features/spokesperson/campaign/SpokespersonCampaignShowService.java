@@ -4,7 +4,6 @@ package acme.features.spokesperson.campaign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.campaigns.Campaign;
 import acme.realms.Spokesperson;
@@ -33,19 +32,15 @@ public class SpokespersonCampaignShowService extends AbstractService<Spokesperso
 	@Override
 	public void authorise() {
 		boolean status;
-		//TODO: No hay restriccion de futuro aqui
-		status = this.campaign != null && (this.campaign.getSpokesperson().isPrincipal() || !this.campaign.isDraftMode() && //
-			MomentHelper.isFuture(this.campaign.getStartMoment()) && MomentHelper.isFuture(this.campaign.getEndMoment()));
+		status = this.campaign != null && (this.campaign.getSpokesperson().isPrincipal() || !this.campaign.isDraftMode());
 
 		super.setAuthorised(status);
 	}
 
 	@Override
 	public void unbind() {
-		//TODO : effort se puede insertar directamente
-		super.unbindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "spokesperson", "draftMode");
-		super.unbindGlobal("monthsActive", this.campaign.getMonthsActive());
-		super.unbindGlobal("effort", this.campaign.getEffort());
+		super.unbindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "spokesperson", "draftMode", "monthsActive", "effort");
+
 	}
 
 }
