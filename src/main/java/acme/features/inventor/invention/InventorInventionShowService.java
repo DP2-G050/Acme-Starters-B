@@ -4,7 +4,6 @@ package acme.features.inventor.invention;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractService;
 import acme.entities.invention.Invention;
 import acme.realms.Inventor;
@@ -34,9 +33,7 @@ public class InventorInventionShowService extends AbstractService<Inventor, Inve
 	public void authorise() {
 		boolean status;
 
-		status = this.invention != null && //TODO
-			(this.invention.getInventor().isPrincipal() || !this.invention.isDraftMode() && //
-				MomentHelper.isFuture(this.invention.getStartMoment()) && MomentHelper.isFuture(this.invention.getEndMoment()));
+		status = this.invention != null && (this.invention.getInventor().isPrincipal() || !this.invention.isDraftMode());
 
 		super.setAuthorised(status);
 	}
