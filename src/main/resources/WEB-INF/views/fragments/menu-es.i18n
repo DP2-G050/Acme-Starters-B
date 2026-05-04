@@ -49,6 +49,8 @@ master.menu.user-account.become-fundraiser = Convertirse en recaudador
 master.menu.user-account.fundraiser-profile = Perfil de recaudador
 master.menu.user-account.become-auditor = Convertirse en auditor
 master.menu.user-account.auditor-profile = Perfil de auditor
+master.menu.user-account.become-manager = Convertirse en gerente
+master.menu.user-account.manager-profile = Perfil de gerente
 
 # master.menu.any ###################################################
 
