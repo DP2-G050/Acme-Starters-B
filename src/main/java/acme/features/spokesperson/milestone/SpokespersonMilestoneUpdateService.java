@@ -39,6 +39,7 @@ public class SpokespersonMilestoneUpdateService extends AbstractService<Spokespe
 		int campaignId;
 		Campaign campaign;
 
+		//TODO: comprobar que el id del repositorio no sea nulo
 		campaignId = this.milestone.getCampaign().getId();
 		campaign = this.repository.findCampaignById(campaignId);
 

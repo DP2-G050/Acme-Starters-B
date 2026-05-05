@@ -35,13 +35,11 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 		boolean status;
 		int campaignId;
 		Campaign campaign;
+		//TODO: sacar ambos this.milestone.getcampaign en el metodo load 
+		status = this.milestone != null && this.milestone.getCampaign().isDraftMode() && this.milestone.getCampaign().getSpokesperson().isPrincipal();
 
-		campaignId = this.milestone.getCampaign().getId();
-		campaign = this.repository.findCampaignById(campaignId);
-
-		status = campaign != null && //
-			campaign.isDraftMode() && campaign.getSpokesperson().isPrincipal();
 		super.setAuthorised(status);
+
 	}
 
 	@Override
