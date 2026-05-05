@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import acme.client.components.models.Tuple;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractService;
-import acme.entities.campaigns.Campaign;
 import acme.entities.campaigns.Milestone;
 import acme.entities.campaigns.MilestoneKind;
 import acme.realms.Spokesperson;
@@ -36,14 +35,9 @@ public class SpokespersonMilestoneShowService extends AbstractService<Spokespers
 	@Override
 	public void authorise() {
 		boolean status;
-		int campaignId;
-		Campaign campaign;
 
-		campaignId = this.milestone.getCampaign().getId();
-		campaign = this.repository.findCampaignById(campaignId);
-
-		status = campaign != null && //
-			(!campaign.isDraftMode() || campaign.getSpokesperson().isPrincipal());
+		status = this.milestone != null && //
+			(!this.milestone.getCampaign().isDraftMode() || this.milestone.getCampaign().getSpokesperson().isPrincipal());
 
 		super.setAuthorised(status);
 	}
@@ -56,6 +50,7 @@ public class SpokespersonMilestoneShowService extends AbstractService<Spokespers
 		choices = SelectChoices.from(MilestoneKind.class, this.milestone.getKind());
 
 		tuple = super.unbindObject(this.milestone, "title", "achievements", "effort", "kind");
+		tuple.put("campaignId", this.milestone.getCampaign().getId());
 		tuple.put("draftMode", this.milestone.getCampaign().isDraftMode());
 		tuple.put("kinds", choices);
 	}

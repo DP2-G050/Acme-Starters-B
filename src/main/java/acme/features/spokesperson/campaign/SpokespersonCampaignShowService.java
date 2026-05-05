@@ -37,7 +37,6 @@ public class SpokespersonCampaignShowService extends AbstractService<Spokesperso
 		super.setAuthorised(status);
 	}
 
-	//TODO: quitar spokesperson y añadir effort  y monthsActive a form
 	@Override
 	public void unbind() {
 		super.unbindObject(this.campaign, "ticker", "name", "description", "startMoment", "endMoment", "moreInfo", "draftMode", "monthsActive", "effort");

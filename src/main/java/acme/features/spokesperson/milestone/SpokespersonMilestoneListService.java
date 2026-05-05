@@ -25,20 +25,20 @@ public class SpokespersonMilestoneListService extends AbstractService<Spokespers
 
 
 	@Override
+	public void load() {
+		int campaignId;
+		campaignId = super.getRequest().getData("campaignId", int.class);
+		this.campaign = this.repository.findCampaignById(campaignId);
+		this.milestones = this.repository.findMilestonesByCampaignId(campaignId);
+	}
+
+	@Override
 	public void authorise() {
 		boolean status;
 
 		status = this.campaign != null && (!this.campaign.isDraftMode() || this.campaign.getSpokesperson().isPrincipal());
 
 		super.setAuthorised(status);
-	}
-
-	@Override
-	public void load() {
-		int campaignId;
-		campaignId = super.getRequest().getData("campaignId", int.class);
-		this.campaign = this.repository.findCampaignById(campaignId);
-		this.milestones = this.repository.findMilestonesByCampaignId(campaignId);
 	}
 
 	@Override
