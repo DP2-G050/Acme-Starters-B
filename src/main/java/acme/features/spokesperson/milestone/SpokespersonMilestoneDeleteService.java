@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.client.services.AbstractService;
-import acme.entities.campaigns.Campaign;
 import acme.entities.campaigns.Milestone;
 import acme.realms.Spokesperson;
 
@@ -18,6 +17,7 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 	private SpokespersonMilestoneRepository	repository;
 
 	private Milestone						milestone;
+	//	private Campaign						campaign;
 
 	// AbstractService interface -------------------------------------------
 
@@ -28,16 +28,17 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 
 		id = super.getRequest().getData("id", int.class);
 		this.milestone = this.repository.findMilestoneById(id);
+		//		if (this.milestone != null)
+		//			this.campaign = this.milestone.getCampaign();
+
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-		int campaignId;
-		Campaign campaign;
 		//TODO: sacar ambos this.milestone.getcampaign en el metodo load 
-		status = this.milestone != null && this.milestone.getCampaign().isDraftMode() && this.milestone.getCampaign().getSpokesperson().isPrincipal();
-
+		//		if (this.milestone != null && this.milestone.getCampaign() != null && this.milestone.getCampaign().getSpokesperson() != null)
+		status = this.milestone.getCampaign().isDraftMode() && this.milestone.getCampaign().getSpokesperson().isPrincipal();
 		super.setAuthorised(status);
 
 	}
