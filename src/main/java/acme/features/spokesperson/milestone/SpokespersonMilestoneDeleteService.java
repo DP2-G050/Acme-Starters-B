@@ -18,6 +18,7 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 	private SpokespersonMilestoneRepository	repository;
 
 	private Milestone						milestone;
+	private Campaign						campaign;
 
 	// AbstractService interface -------------------------------------------
 
@@ -28,20 +29,19 @@ public class SpokespersonMilestoneDeleteService extends AbstractService<Spokespe
 
 		id = super.getRequest().getData("id", int.class);
 		this.milestone = this.repository.findMilestoneById(id);
+		if (this.milestone != null)
+			this.campaign = this.milestone.getCampaign();
+
 	}
 
 	@Override
 	public void authorise() {
 		boolean status;
-		int campaignId;
-		Campaign campaign;
-
-		campaignId = this.milestone.getCampaign().getId();
-		campaign = this.repository.findCampaignById(campaignId);
-
-		status = campaign != null && //
-			campaign.isDraftMode() && campaign.getSpokesperson().isPrincipal();
+		status = this.milestone != null && //
+			this.campaign.isDraftMode() && //
+			this.campaign.getSpokesperson().isPrincipal();
 		super.setAuthorised(status);
+
 	}
 
 	@Override

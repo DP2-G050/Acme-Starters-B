@@ -48,20 +48,23 @@ public class SpokespersonCampaignPublishService extends AbstractService<Spokespe
 	public void validate() {
 		super.validateObject(this.campaign);
 		{
-			boolean futureMoment = true;
+			if (!super.getErrors().hasErrors("startMoment")) {
 
-			if (this.campaign.getStartMoment() != null && this.campaign.getEndMoment() != null)
-				futureMoment = MomentHelper.isFuture(this.campaign.getStartMoment()) && MomentHelper.isFuture(this.campaign.getEndMoment());
-
-			super.state(futureMoment, "*", "acme.validation.campaign.no-future.message");
+				boolean futureMoment = true;
+				if (this.campaign.getStartMoment() != null && this.campaign.getEndMoment() != null)
+					futureMoment = MomentHelper.isFuture(this.campaign.getStartMoment()) && MomentHelper.isFuture(this.campaign.getEndMoment());
+				super.state(futureMoment, "*", "acme.validation.campaign.no-future.message");
+			}
 		}
 		{
-
-			boolean endMomentAfterStartMoment = true;
-			if (this.campaign.getStartMoment() != null && this.campaign.getEndMoment() != null)
-				endMomentAfterStartMoment = MomentHelper.isBeforeOrEqual(this.campaign.getStartMoment(), this.campaign.getEndMoment());
-			super.state(endMomentAfterStartMoment, "endMoment", "acme.validation.campaign.end-moment-before-start.message");
+			if (!super.getErrors().hasErrors("endMoment")) {
+				boolean endMomentAfterStartMoment = true;
+				if (this.campaign.getStartMoment() != null && this.campaign.getEndMoment() != null)
+					endMomentAfterStartMoment = MomentHelper.isBeforeOrEqual(this.campaign.getStartMoment(), this.campaign.getEndMoment());
+				super.state(endMomentAfterStartMoment, "endMoment", "acme.validation.campaign.end-moment-before-start.message");
+			}
 		}
+
 		{
 			Integer milestoneCount = this.repository.countMilestones(this.campaign.getId());
 			boolean atLeastOneMilestone = milestoneCount != null && milestoneCount >= 1;

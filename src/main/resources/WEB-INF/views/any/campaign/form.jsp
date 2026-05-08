@@ -9,9 +9,8 @@
 	<acme:form-textbox code="any.campaign.form.label.start-moment" path="startMoment" readonly="true"/>
 	<acme:form-textbox code="any.campaign.form.label.end-moment" path="endMoment" readonly="true"/>
 	<acme:form-url code="any.campaign.form.label.more-info" path="moreInfo" readonly="true"/>
-	
-	<acme:form-textbox code="campaign.months-active" path="monthsActive" readonly="true"/>
-	<acme:form-textbox code="campaign.effort" path="effort" readonly="true"/>
+	<acme:form-double   code="any.campaign.form.label.monthsActive" path="monthsActive" readonly="true"/>
+	<acme:form-double   code="any.campaign.form.label.effort"   	   path="effort"   readonly="true"/>
 
 	<acme:button code="any.campaign.form.button.milestones" action="/any/milestone/list?campaignId=${id}"/>
 	<acme:button code="any.campaign.form.button.spokesperson" action="/any/spokesperson/show?id=${spokesperson.id}"/>

@@ -62,8 +62,6 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 
 				if (this.repository.countMilestones(campaign.getId()) != null)
 					atLeastOneMilestone = campaign.isDraftMode() || this.repository.countMilestones(campaign.getId()) >= 1;
-				else
-					atLeastOneMilestone = campaign.isDraftMode();
 
 				super.state(context, atLeastOneMilestone, "draftMode", "acme.validation.campaign.no-milestones.message");
 			}

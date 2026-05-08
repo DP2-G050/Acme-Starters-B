@@ -9,6 +9,8 @@
 	<acme:form-moment code="spokesperson.campaign.form.label.start-moment" path="startMoment"/>
 	<acme:form-moment code="spokesperson.campaign.form.label.end-moment" path="endMoment"/>
 	<acme:form-url code="spokesperson.campaign.form.label.more-info" path="moreInfo"/>
+	<acme:form-double   code="spokesperson.campaign.form.label.monthsActive" path="monthsActive" readonly="true"/>
+	<acme:form-double   code="spokesperson.campaign.form.label.effort"   	   path="effort"   readonly="true"/>
 	
 	<jstl:choose>	 
 		<jstl:when test="${_command == 'show' && draftMode == false}">

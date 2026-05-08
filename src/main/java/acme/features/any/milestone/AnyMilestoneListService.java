@@ -18,6 +18,7 @@ public class AnyMilestoneListService extends AbstractService<Any, Milestone> {
 	protected AnyMilestoneRepository	repository;
 
 	private Collection<Milestone>		milestones;
+
 	private Campaign					campaign;
 
 
