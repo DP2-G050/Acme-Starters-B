@@ -34,11 +34,8 @@ public class SpokespersonMilestoneCreateService extends AbstractService<Spokespe
 		campaign = this.repository.findCampaignById(campaignId);
 
 		this.milestone = super.newObject(Milestone.class);
-		this.milestone.setTitle("");
-		this.milestone.setAchievements("");
-		this.milestone.setEffort(0.);
 		this.milestone.setCampaign(campaign);
-		;
+
 	}
 
 	@Override
