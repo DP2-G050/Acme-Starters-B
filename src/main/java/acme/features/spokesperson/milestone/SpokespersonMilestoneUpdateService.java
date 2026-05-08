@@ -40,8 +40,6 @@ public class SpokespersonMilestoneUpdateService extends AbstractService<Spokespe
 	public void authorise() {
 		boolean status;
 
-		//TODO: comprobar que el id del repositorio no sea nulo
-
 		status = this.milestone != null && //
 			this.campaign.isDraftMode() && this.campaign.getSpokesperson().isPrincipal();
 		super.setAuthorised(status);

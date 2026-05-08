@@ -60,7 +60,6 @@ public class CampaignValidator extends AbstractValidator<ValidCampaign, Campaign
 			{
 				boolean atLeastOneMilestone = true;
 
-				//TODO limpiar este if, al else no entra nunca o no debe entrar
 				if (this.repository.countMilestones(campaign.getId()) != null)
 					atLeastOneMilestone = campaign.isDraftMode() || this.repository.countMilestones(campaign.getId()) >= 1;
 
